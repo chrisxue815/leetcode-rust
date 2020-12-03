@@ -1,6 +1,6 @@
 struct Solution {}
 
-// O(n) time. O(1) space. Array.
+// O(n^2) time. O(1) space. Array.
 impl Solution {
     pub fn generate(num_rows: i32) -> Vec<Vec<i32>> {
         if num_rows <= 0 {
