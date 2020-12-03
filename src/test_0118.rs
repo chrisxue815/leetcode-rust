@@ -7,21 +7,15 @@ impl Solution {
             return vec![];
         }
 
-        let mut triangle = Vec::with_capacity(num_rows as usize);
-        triangle.push(vec![1]);
+        let mut triangle: Vec<Vec<i32>> =
+            (0..num_rows).map(|r| vec![1; (r + 1) as usize]).collect();
 
-        for r in 1..num_rows {
-            let mut curr = vec![0; (r + 1) as usize];
-            let prev = triangle.last().unwrap();
-
-            curr[0] = prev[0];
-            *curr.last_mut().unwrap() = *prev.last().unwrap();
-
+        for r in 2..num_rows {
+            let r = r as usize;
             for c in 1..r {
-                curr[c as usize] = prev[(c - 1) as usize] + prev[c as usize];
+                let c = c as usize;
+                triangle[r][c] = triangle[r - 1][c - 1] + triangle[r - 1][c];
             }
-
-            triangle.push(curr);
         }
 
         triangle
