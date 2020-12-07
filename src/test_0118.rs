@@ -7,13 +7,16 @@ impl Solution {
             return vec![];
         }
 
-        let mut triangle: Vec<Vec<i32>> =
-            (0..num_rows).map(|r| vec![1; (r + 1) as usize]).collect();
+        let num_rows = num_rows as usize;
 
-        for r in 2..num_rows {
-            let r = r as usize;
+        let mut triangle: Vec<Vec<i32>> = (0..num_rows).map(|r| vec![0; r + 1]).collect();
+        triangle[0][0] = 1;
+
+        for r in 1..num_rows {
+            triangle[r][0] = 1;
+            triangle[r][r] = 1;
+
             for c in 1..r {
-                let c = c as usize;
                 triangle[r][c] = triangle[r - 1][c - 1] + triangle[r - 1][c];
             }
         }
@@ -34,7 +37,7 @@ mod tests {
 
         for case in test_data.test_cases {
             let msg = serde_json::to_string(&case.args).unwrap();
-            let actual = Solution::generate(case.args.num_rows);
+            let actual = Solution::generate(case.args.numRows);
             assert_eq!(actual, case.expected, "{}", msg);
         }
     }
@@ -50,8 +53,9 @@ mod tests {
         expected: Vec<Vec<i32>>,
     }
 
+    #[allow(non_snake_case)]
     #[derive(Serialize, Deserialize)]
     struct Args {
-        num_rows: i32,
+        numRows: i32,
     }
 }
