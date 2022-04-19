@@ -9,6 +9,7 @@ mod test_0118;
 mod test_0119;
 mod test_0121;
 mod test_0238;
+mod test_0560;
 mod test_0643;
 mod test_0718;
 mod test_0769;
