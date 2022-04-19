@@ -2,6 +2,7 @@
 
 mod test_0042_auxiliary_space;
 mod test_0042_two_pointers;
+mod test_0053;
 mod test_0056;
 mod test_0118;
 mod test_0119;
