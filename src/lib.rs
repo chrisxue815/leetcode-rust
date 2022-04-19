@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+mod test_0004;
 mod test_0031;
 mod test_0042_auxiliary_space;
 mod test_0042_two_pointers;
