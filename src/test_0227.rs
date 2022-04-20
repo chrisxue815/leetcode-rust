@@ -46,14 +46,9 @@ impl Solution {
             i = j;
 
             match op {
-                b'+' => {
+                b'+' | b'-' => {
                     sum += product * sign;
-                    sign = 1;
-                    product = num;
-                }
-                b'-' => {
-                    sum += product * sign;
-                    sign = -1;
+                    sign = 44 - op as i32;
                     product = num;
                 }
                 b'*' => {
