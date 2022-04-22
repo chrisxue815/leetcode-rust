@@ -13,6 +13,7 @@ mod test_0121;
 mod test_0224;
 mod test_0227;
 mod test_0238;
+mod test_0363;
 mod test_0394;
 mod test_0560;
 mod test_0621;
