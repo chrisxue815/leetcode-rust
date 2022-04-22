@@ -5,7 +5,7 @@ impl Solution {
     pub fn decode_string(s: String) -> String {
         let s = s.as_bytes();
         let mut stack = vec![];
-        let mut buf = Box::new(vec![]);
+        let mut buf = vec![];
         let mut k = 0;
 
         for c in s {
@@ -13,7 +13,7 @@ impl Solution {
                 k = k * 10 + (c - b'0') as usize;
             } else if *c == b'[' {
                 stack.push((buf, k));
-                buf = Box::new(vec![]);
+                buf = vec![];
                 k = 0;
             } else if *c == b']' {
                 let (mut prev_buf, prev_k) = stack.pop().unwrap();
@@ -27,7 +27,7 @@ impl Solution {
             }
         }
 
-        String::from_utf8(*buf).unwrap()
+        String::from_utf8(buf).unwrap()
     }
 }
 
